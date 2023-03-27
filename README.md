@@ -1,2 +1,1 @@
-# KangaJump.github.io
-Capstone Project
+index.html
