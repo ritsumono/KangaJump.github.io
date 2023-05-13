@@ -2,20 +2,37 @@
 	margin: 0;
 	padding: 0;
 }
+
+:root{
+    --hue-neutral: 200;
+    --hue-wrong: 0;
+    --hue-correct: 145;
+}
+
 body{
+    --hue: var(--hue-neutral);
 	height: 100vh;
+    width: 100vw;
 	font-size: 1rem;
 	font-family: 'Roboto','Poppins',Arial,sans-serif;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+    background-color: hsl(var(--hue),100%, 20%);
 }
 
+body.correct {
+    --hue: var(--hue-correct);
+}
+
+body.wrong {
+    --hue: var(--hue-wrong);
+}
 
 div.content{
-  position: relative;
-  width: 850px;
-  height: 500px;
+    position:relative;
+  width:auto;
+  height: 280px;
   border: 1px solid #ccc;
   margin: auto;
   margin-top: 20px;
@@ -23,7 +40,7 @@ div.content{
   background-image: url(''), url('assets/background.png');
   background-repeat: repeat;
   background-position: -10 30px, -50 150px;
-  animation: land 15s linear infinite;
+  animation: land 5s linear infinite;
 
   display: flex;
   align-items: flex-end;
@@ -32,10 +49,10 @@ div.content{
 
 @keyframes land{
 	0%{
-		background-position: 0 230px, 3000% 30px;
+		background-position: 0 230px, 3500% -200px;
 	}
 	100%{
-		background-position: 100% 230px, -200% 30px;
+		background-position: 100% 230px, -200% -200px;
 	}
 }
 
@@ -99,12 +116,12 @@ img#block{
   width: 75px;
   height: 70px;
   top: 0;
-  right: -750px;
+  right: -1050px;
   z-index: 5;
 }
 
 img#block.devagar{
-  animation: animate 1.5s linear infinite;
+  animation: animate .9s linear infinite;
 }
 
 img#block.normal{
@@ -112,7 +129,7 @@ img#block.normal{
 }
 
 img#block.rapido{
-  animation: animate .8s linear infinite;
+  animation: animate 1.5s linear infinite;
 }
 
 @keyframes animate{
@@ -121,7 +138,7 @@ img#block.rapido{
   }
 
   100%{
-    right: 150px;
+    right: 115px;
   }
 }
 
@@ -130,7 +147,7 @@ div.content button{
   border: 1px solid #ccc;
   color: #000;
 
-  padding: 20px 50px;
+  padding: 20px 30px;
 }
 
 div.content button:hover{
@@ -143,15 +160,10 @@ div.content button:active{
 
 div.content button#reset-btn{
   position: absolute;
-  top: 40px;
-  right: 400px;
+  top: 20px;
+  right: 100000000px;
 }
 
-div.content button#sair-btn{
-  position: absolute;
-  top: 40px;
-  right: 250px;
-}
 
 div.content div.buttons{
   position: absolute;
@@ -159,3 +171,65 @@ div.content div.buttons{
   right: 225px;
 }
 
+.container {
+    position:absolute;
+    height: auto;
+    width: 800px;
+    max-width: 80%;
+    background-color: aqua;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10 px; 2px;
+}
+
+.btn-grid{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    grid-gap: 10px;
+    margin: 20px 0;
+}
+
+.btn{
+    --hue: var(--hue-neutral);
+    border: 1px solid hsl(var(--hue),100%, 30%);
+    background-color: hsl(var(--hue),100%, 50%);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    outline: none;
+}
+
+.btn:hover {
+    border-color: black;
+}
+
+.btn.correct {
+    --hue: var(--hue-correct);
+    color: black;
+}
+
+.btn.wrong {
+    --hue: var(--hue-wrong);
+}
+
+.start-btn, .next-btn, .play-btn, .restart-btn {
+    font-size: 1.rem;
+    font-weight: bold;
+    padding: 40px, 100px;
+}
+
+
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide{
+    display: none;
+}
+
+.hidden{
+    display: none;
+}
